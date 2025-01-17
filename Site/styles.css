@@ -1,0 +1,578 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF;
+    color: #000;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+  
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; 
+}
+/* Arama butonu */
+.search-bar input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #2A2A3F;
+    color: #FFF;
+    transition: background 0.3s ease;
+}
+
+.search-bar input:focus {
+    background: #333;
+    outline: 2px solid #8B10C3;
+}
+
+.search-bar button {
+    margin-left: 5px;
+    background: none;
+    border: 1px solid #8B10C3;
+    color: #FFF;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background: #8B10C3;
+    color: #FFF;
+}
+
+/* Dark Mode butonu */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+/* Genel panel */
+.panels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+
+/* ORTA PANEL İÇİN */
+.orta-panel {
+    width: 400px;
+    border-radius: 30px;
+    background: linear-gradient(180deg, #8B10C3, #0E8494);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    color: white;
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.location {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.temperature {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.feels-like {
+    font-size: 1rem;
+    color: #d0d0d0;
+}
+
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sunrise, .sunset {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+}
+.sunrise span, .sunset span {
+    text-align: left;
+}
+.sunrise img, .sunset img {
+    width: 54px;
+    height: auto;
+}
+.sunrise .text, .sunset .text {
+    display: flex;
+    flex-direction: column;
+}
+.temperature .text{
+    display: flex;
+    flex-direction: column;
+}
+
+.condition {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 5px; 
+    position: absolute; 
+    right: 30px; 
+    top: 50px; 
+    font-size: 1rem;
+}
+
+.condition .icon img {
+    width: 50px;
+    height: auto;
+}
+
+.condition .text {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.condition img {
+    width: 100px;
+    height: auto;
+}
+
+/* SOL PANEL İÇİN */
+.sol-panel {
+    width: 350px;
+    border-radius: 30px;
+    background: linear-gradient(180deg, #8B10C3, #0E8494);
+    padding: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.tabs span {
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.tabs .active {
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+.forecast {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.temperatures {
+    flex: 0.5;
+    text-align: right;
+}
+
+.max-temp {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.min-temp {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* SAĞ PANEL İÇİN */
+
+/* Genel kart tasarımı */
+.card {
+    width: 300px;
+    border-radius: 30px;
+    background: linear-gradient(180deg, #8B10C3, #0E8494);
+    padding: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Saat ve tarih bölümü */
+.time h1 {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.time p {
+    font-size: 1.2rem;
+    margin: 5px 0 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Detaylar bölümü */
+.details {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail img {
+    width: 60px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.detail .text {
+    text-align: center;
+}
+
+.detail span {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.detail p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 5px 0 0;
+}
+
+/* EN ALT SATIRDAKİLER */
+/* Genel stil */
+.hourly-weather {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, #8B10C3, #0E8494);
+    padding: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Kart konteyneri */
+.cards-container {
+    display: flex;
+    gap: 9px;
+    overflow-x: auto;
+    padding: 10px 0;
+    scroll-behavior: smooth;
+}
+
+/* Hava durumu kartı */
+.weather-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(180deg, #8B10C3, #0E8494);
+    border-radius: 10px;
+    padding: 15px;
+    width: 100px;
+    text-align: center;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+
+}
+/* Saat ve sıcaklık */
+.weather-card .time {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.weather-card .temperature {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* İkonlar */
+.weather-card .weather-icon {
+    width: 50px;
+    height: auto;
+}
+
+/* Rüzgar bilgisi */
+.wind-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.wind-info .wind-icon {
+    width: 40px;
+    height: auto;
+}
+
+/* Ok butonları */
+.arrow {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: black;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.arrow-left,
+.arrow-right {
+  background: linear-gradient(180deg, #8B10C3, #0E8494);
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  background-color: #ddd;
+}
+  
+.spacer {
+    height: 30px;
+    background: transparent; /* Görünmez */
+}
+
+#live-time {
+    font-size: 3rem;
+    font-weight: bold;
+    transition: all 0.5s ease-in-out;
+}
+  
+#live-time:hover {
+    transform: scale(1.1);
+}
+  
+#live-date {
+    font-size: 1rem;
+    color: #ddd;
+    transition: color 0.3s;
+}
+  
+#live-date:hover {
+    color: #fff;
+}
+
+/* DARK MODE  */
+body.dark-mode {
+    background-color: #1E1E2F; 
+    color: #FFF; 
+}
+
+body.dark-mode .app {
+    background-color: #1E1E2F; 
+}
+
+/* Arama butonu */
+.search-bar input {
+    background: #2A2A3F; 
+    color: #FFF; 
+}
+
+.switch input:checked + .slider {
+    background-color: #2196F3;
+}
+
+/* Genel Dark Mode Arka Plan ve Gölge */
+body.dark-mode {
+    background-color: #1E1E2F;
+    color: #FFF;
+}
+
+body.dark-mode .sol-panel,
+body.dark-mode .orta-panel,
+body.dark-mode .card,
+body.dark-mode .weather-card,
+body.dark-mode .hourly-weather {
+    background: linear-gradient(180deg, #333, #444);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .tabs span,
+body.dark-mode .wind-info,
+body.dark-mode .condition {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-mode .weather-card .time {
+    color: rgba(255, 255, 255, 0.8);
+}
+.weather-card,
+.search-bar input,
+.switch .slider,
+.condition img,
+#live-time {
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease;
+}
+
+:root {
+    --bg-color: #FFF;
+    --text-color: #000;
+    --card-bg: linear-gradient(180deg, #8B10C3, #0E8494);
+    --shadow: rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode {
+    --bg-color: #1E1E2F;
+    --text-color: #FFF;
+    --card-bg: linear-gradient(180deg, #333, #444);
+    --shadow: rgba(0, 0, 0, 0.5);
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.sol-panel, .orta-panel, .card {
+    background: var(--card-bg);
+    box-shadow: 0 4px 15px var(--shadow);
+}
+
+.cards-container {
+    scrollbar-width: thin;
+    scrollbar-color: #8B10C3 #444; /* Modern tarayıcılar için */
+}
+
+.cards-container::-webkit-scrollbar {
+    height: 5px;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+    background: #8B10C3;
+    border-radius: 10px;
+}
+
+.forecast-day-row {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px; 
+    border-bottom: 1px solid #ddd; 
+  }
+  
+  .date {
+    flex: 1; 
+    text-align: left;
+    font-size: 16px; 
+  }
+  
+.small-icon {
+    flex: 0; 
+    width: 30px; 
+    height: 30px; 
+    margin: 0 10px;
+  }
+  
+.temps {
+    flex: 1; 
+    text-align: right;
+    font-size: 14px; 
+}
+
+.stars-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Etkileşim almayacak */
+    z-index: 1; /* Yıldızların görünmesini sağla (içerik altına göre ayarlı olmalı) */
+}
+
+
+.star {
+    width: 6px;
+    height: 6px;
+    background: yellow;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    position: absolute;
+    animation: twinkle 2s infinite alternate ease-in-out;
+    opacity: 0.8; /* Hafif şeffaf görünüm */
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
+
+  .star.hide {
+    opacity: 0;
+    transform: scale(2);
+  }

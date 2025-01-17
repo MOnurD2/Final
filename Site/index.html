@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeatherMe</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body> 
+  <div class="app">
+    <header class="header">
+      <h1>WeatherMe</h1>
+      <div class="search-bar">
+        <input type="text" id="locationInput" placeholder="Konum ara..." />
+        <button id="searchButton">🔍</button>
+        </div>
+      <div class="stars-container"></div>
+      <div id="weatherInfo"></div>
+      <div class="settings">
+        <span>Dark Mode</span>
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </header>
+    <main>
+      <div class="panels">
+        <div class="sol-panel">
+          <!-- Sekmeler (Tabs) -->
+          <div class="tabs">
+            <span class="active">Ankara</span>
+            <span>İstanbul</span>
+            <span>İzmir</span>
+          </div>
+          <!-- Hava Durumu Tahminleri -->
+          <div class="forecast">
+
+          </div>
+        </div>
+       <div class="orta-panel">
+        <div class="location">📍 Ankara</div>
+        <div class="temperature">
+    <div class="text">
+        <span class="current-temp">--</span>
+        <span class="feels-like">Hissedilen: --</span>
+    </div>
+    <div class="condition">
+        <img src="sun-icon.svg" alt="Güneşli">
+        <span></span>
+    </div>
+</div>
+      <div class="weather-info">
+        <div class="sunrise">
+          <img src="sunrise-icon.svg" alt="Sunrise">
+          <div class="text">
+            <span>Gündoğumu</span>
+            <span class="sunrise-time">06:37 AM</span>
+        </div>
+        </div>
+        <div class="sunset">
+          <img src="sunset-icon.svg" alt="Sunset">
+          <div class="text">
+            <span>Günbatımı</span>
+            <span class="sunset-time">20:37 PM</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="card">
+        <div class="time">
+            <h1 id="live-time">--:--:--</h1>
+            <p id="live-date">Güncelleniyor...</p>
+        </div>
+        <div class="details">
+          <div class="detail">
+            <img src="humidity-icon.svg" alt="Nem">
+            <div class="text">
+              <span class="humidity"></span>
+              <p>Nem</p>
+            </div>
+          </div>
+          <div class="detail">
+            <img src="wind-icon.svg" alt="Rüzgar Hızı">
+            <div class="text">
+              <span class="wind"></span>
+              <p>Rüzgar Hızı</p>
+            </div>
+          </div>
+          <div class="detail">
+            <img src="pressure-icon.svg" alt="Basınç">
+            <div class="text">
+              <span class="pressure"></span>
+              <p>Basınç</p>
+            </div>
+          </div>
+          <div class="detail">
+            <img src="uv-icon.svg" alt="UV">
+            <div class="text">
+              <span class="uvs"></span>
+              <p>UV</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="spacer"></div>
+      <div class="hourly-weather">
+        <button class="arrow arrow-left">‹</button>
+        <div class="cards-container">
+          <div class="weather-card">
+            <!-- Buraya javascriptten geliyor -->
+          </div>
+        </div>
+        <button class="arrow arrow-right">›</button>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
