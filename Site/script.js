@@ -205,36 +205,3 @@ function createStar() {
 
 // Yıldızları düzenli olarak oluşturma
 setInterval(() => createStar(), 400); // Her 400ms'de bir yeni yıldız ekle
-
-searchButton.addEventListener("click", async () => {
-  const city = searchInput.value.trim();
-  if (city) {
-      try {
-          const response = await fetch(`weather_api.php?city=${encodeURIComponent(city)}`);
-          const result = await response.json();
-
-          if (result.success) {
-              const data = result.data;
-              document.querySelector(".location").textContent = `📍 ${data.city}`;
-              document.querySelector(".current-temp").textContent = `${data.temp_c}°C`;
-              document.querySelector(".feels-like").textContent = `Hissedilen: ${data.feelslike_c}°C`;
-              document.querySelector(".condition span").textContent = data.condition_text;
-              document.querySelector(".condition img").src = data.icon_url;
-
-              document.querySelector(".humidity").textContent = `%${data.humidity}`;
-              document.querySelector(".wind").textContent = `${data.wind_kph} kph`;
-              document.querySelector(".pressure").textContent = data.pressure_mb;
-              document.querySelector(".uvs").textContent = data.uv;
-              document.querySelector(".sunrise-time").textContent = data.sunrise_time;
-              document.querySelector(".sunset-time").textContent = data.sunset_time;
-          } else {
-              alert(result.message);
-          }
-      } catch (error) {
-          console.error("Veri alınamadı:", error);
-          alert("Bir hata oluştu.");
-      }
-  } else {
-      alert("Lütfen bir şehir adı girin.");
-  }
-});
